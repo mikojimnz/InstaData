@@ -1,0 +1,25 @@
+{
+  "name": "InstaData",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikojimnz/InstaData.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikojimnz/InstaData/issues"
+  },
+  "homepage": "https://github.com/mikojimnz/InstaData#readme",
+  "description": ""
+}
