@@ -2,7 +2,7 @@
 
 $(window).on('load', function () {
     'use strict';
-    
+
     $('#uploadModal').modal({
         backdrop: 'static',
         keyboard: false
@@ -35,17 +35,52 @@ $(window).on('load', function () {
             $('#fileUploadConnectionsWarning').text("Error: This file is not connections.json");
         }
     });
+
+    $("table").on('click-row.bs.table', function (field, value) {
+        window.open('https://instagram.com/' + value.key, '_blank');
+    });
 });
 
 function drawTable(connections) {
-    function sanatizeData(res) {
+    function sanatizeData(res, FB, CF) {
         var data = [];
-        for (var key in res) {
-            data.push({
-                key: key,
-                value: res[key]
-            });
+        var res2 = [];
+        var extra = [];
+
+        if (FB != undefined) {
+            for (var key in FB) {
+                res2.push(key);
+            }
         }
+
+        if (CF != undefined) {
+            for (var key in CF) {
+                extra.push(key);
+            }
+        }
+
+        for (key in res) {
+            if (FB != undefined && CF != undefined) {
+                data.push({
+                    key: key,
+                    value: res[key].substr(0, 19).replace("T", " "),
+                    FB: ($.inArray(key, res2) + 1) ? "Yes" : "No",
+                    extra: ($.inArray(key, extra) + 1) ? "Yes" : "No"
+                });
+            } else if (CF != undefined) {
+                data.push({
+                    key: key,
+                    value: res[key].substr(0, 19).replace("T", " "),
+                    extra: ($.inArray(key, extra) + 1) ? "Yes" : "No"
+                });
+            } else {
+                data.push({
+                    key: key,
+                    value: res[key].substr(0, 19).replace("T", " ")
+                });
+            }
+        }
+
         return data;
     }
 
@@ -58,13 +93,30 @@ function drawTable(connections) {
             field: 'value',
             title: 'Date',
             sortable: true
+        }, {
+            field: 'extra',
+            title: 'Close Friend',
+            sortable: true,
+            visible: false
+        }, {
+            field: 'FB',
+            title: 'Follow Back',
+            sortable: true,
+            visible: false
         }],
-        data: sanatizeData(connections.followers),
+        data: sanatizeData(connections.followers, connections.following, connections.close_friends),
         pagination: true,
-        search: true
+        search: true,
+        sortName: 'key'
     });
     $('#followerCount').text($('#tableConnectionsFollowers').bootstrapTable('getOptions').totalRows);
-    
+
+    $('#tableConnectionsFollowers').bootstrapTable('filterBy', {
+        FB: 'Yes'
+    });
+    $('#f4f').text($('#tableConnectionsFollowers').bootstrapTable('getOptions').totalRows);
+    $('#tableConnectionsFollowers').bootstrapTable('filterBy', {});
+
     $('#tableConnectionsFollowing').bootstrapTable({
         columns: [{
             field: 'key',
@@ -74,13 +126,24 @@ function drawTable(connections) {
             field: 'value',
             title: 'Date',
             sortable: true
+        }, {
+            field: 'extra',
+            title: 'Close Friend',
+            sortable: true,
+            visible: false
+        }, {
+            field: 'FB',
+            title: 'Follow Back',
+            sortable: true,
+            visible: false
         }],
-        data: sanatizeData(connections.following),
+        data: sanatizeData(connections.following, connections.followers, connections.close_friends),
         pagination: true,
-        search: true
+        search: true,
+        sortName: 'key'
     });
     $('#followingCount').text($('#tableConnectionsFollowing').bootstrapTable('getOptions').totalRows);
-    
+
     $('#tableConnectionsBlocked').bootstrapTable({
         columns: [{
             field: 'key',
@@ -93,10 +156,11 @@ function drawTable(connections) {
         }],
         data: sanatizeData(connections.blocked_users),
         pagination: true,
-        search: true
+        search: true,
+        sortName: 'key'
     });
     $('#blockedCount').text($('#tableConnectionsBlocked').bootstrapTable('getOptions').totalRows);
-    
+
     $('#tableConnectionsRestricted').bootstrapTable({
         columns: [{
             field: 'key',
@@ -109,7 +173,42 @@ function drawTable(connections) {
         }],
         data: sanatizeData(connections.restricted_users),
         pagination: true,
-        search: true
+        search: true,
+        sortName: 'key'
     });
     $('#restrictedCount').text($('#tableConnectionsRestricted').bootstrapTable('getOptions').totalRows);
+
+    $('#tableRequestIn').bootstrapTable({
+        columns: [{
+            field: 'key',
+            title: 'Username',
+            sortable: true
+        }, {
+            field: 'value',
+            title: 'Date',
+            sortable: true
+        }],
+        data: sanatizeData(connections.follow_requests_received),
+        pagination: true,
+        search: true,
+        sortName: 'key'
+    });
+    $('#requestInCount').text($('#tableRequestIn').bootstrapTable('getOptions').totalRows);
+
+    $('#tableRequestOut').bootstrapTable({
+        columns: [{
+            field: 'key',
+            title: 'Username',
+            sortable: true
+        }, {
+            field: 'value',
+            title: 'Date',
+            sortable: true
+        }],
+        data: sanatizeData(connections.follow_requests_sent),
+        pagination: true,
+        search: true,
+        sortName: 'key'
+    });
+    $('#requestOutCount').text($('#tableRequestOut').bootstrapTable('getOptions').totalRows);
 }
