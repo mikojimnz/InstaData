@@ -13,7 +13,7 @@
     margin-bottom: 0rem;
 }
 
-.ig-gradient {
+.ig-gradient,.tableCount {
     background: #d6249f;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     -webkit-background-clip: text;
@@ -23,4 +23,12 @@
 .navbar-brand {
     font-size: 24px;
     font-weight: 600;
+}
+
+.tableCount {
+    font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: 200;
 }

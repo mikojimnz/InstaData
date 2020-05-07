@@ -16,7 +16,7 @@
         "type": "git",
         "url": "git+https://github.com/mikojimnz/InstaData.git"
     },
-    "keywords": ['HTML', 'JavaScript', 'JQuery', 'Bootstrap', 'Instagram'],
+    "keywords": ["HTML", "JavaScript", "JQuery", "Bootstrap", "Instagram"],
     "author": "Miko Jimenez",
     "license": "MIT",
     "bugs": {
