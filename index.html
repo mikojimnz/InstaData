@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#blockedRestricted">Blocked &amp; Restricted</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link aboutBtn" href="#about" onclick="return false;">About</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -64,7 +67,7 @@
                                     <div class="form-group">
                                         <label for="fileUpload">Upload <span class="code">connections.json</span></label>
                                         <input type="file" class="form-control" id="fileUploadConnections" aria-describedby="fileUploadConnections" accept=".json" required>
-                                        <small id="fileUploadConnectionsHelp" class="form-text text-muted">Your data is not uploaded to any servers. All processing is done locally on your computer.</small>
+                                        <small id="fileUploadConnectionsHelp" class="form-text text-muted">Your data is not uploaded to any servers. All processing is done locally on your computer. <a class="aboutBtn" href="#" onclick="return false;">Learn More</a></small>
                                     </div>
                                     <div class="form-group">
                                         <small id="fileUploadConnectionsWarning" class="form-text text-danger"></small>
@@ -75,6 +78,32 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="uploadSubmit">Upload and Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Modal -->
+    <div>
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">About</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Created by <a href="https://github.com/mikojimnz">Miko Jimenez</a></h5>
+                        <hr>
+                        <p>This web application was created for the benefit of understanding your data.</p>
+                        <p>Your personal information is your property.</p>
+                        <p>The contents of your data is never uploaded, stored, or shared with any other third parties. It is all procced locally on your browser. Nothing is saved to your computer. No Cookies. No Tracking. Nothing.</p>
+                        <hr>
+                        <a href="https://github.com/mikojimnz/InstaData" target="_blank">Contribute to the project</a>
+                        <br>
+                        <a href="https://github.com/mikojimnz/InstaData/issues" target="_blank">Report a bug</a>
                     </div>
                 </div>
             </div>
