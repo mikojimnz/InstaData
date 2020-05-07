@@ -1,7 +1,7 @@
 {
     "name": "InstaData",
-    "version": "0.0.1",
-    "main": "index.js",
+    "version": "1.0.0",
+    "main": "index.html",
     "dependencies": {
         "bootstrap": "^4.4.1",
         "bootstrap-table": "^1.16.0",
