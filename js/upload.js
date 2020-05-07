@@ -35,11 +35,6 @@ $(window).on('load', function () {
             $('#fileUploadConnectionsWarning').text("Error: This file is not connections.json");
         }
     });
-    
-    $(".aboutBtn").click(function () {
-        $('#aboutModal').modal('show');
-    });
-
 });
 
 function drawTable(connections) {
