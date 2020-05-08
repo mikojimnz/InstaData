@@ -180,10 +180,7 @@ $(window).on('load', function () {
     });
 
     $("#getStarted").click(function () {
-        $('#uploadModal').modal({
-            backdrop: 'static',
-            keyboard: false
-        });
+        $('#uploadModal').modal('show');
     });
 
     $("#uploadSubmit").click(function (event) {

@@ -16,10 +16,10 @@ $(window).on('load', function () {
     }
 
     $("#followFFollow").click(function () {
-        if ($(this).hasClass("btn-info")) {
+        if ($(this).hasClass("btn-primary")) {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {});
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {});
-            $(this).removeClass("btn-info");
+            $(this).removeClass("btn-primary");
             clearFilters();
         } else {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {
@@ -28,7 +28,7 @@ $(window).on('load', function () {
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {
                 FB: 'Yes'
             });
-            $(this).addClass("btn-info");
+            $(this).addClass("btn-primary");
             clearFilters();
         }
 
@@ -40,14 +40,14 @@ $(window).on('load', function () {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {});
             $(this).removeClass("btn-success");
             $("#followerFB").removeClass("btn-warning");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         } else {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {
                 extra: 'Yes'
             });
             $(this).addClass("btn-success");
             $("#followerFB").removeClass("btn-warning");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         }
 
         updateStats();
@@ -58,14 +58,14 @@ $(window).on('load', function () {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {});
             $(this).removeClass("btn-warning");
             $("#followerCF").removeClass("btn-success");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         } else {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {
                 FB: 'No'
             });
             $(this).addClass("btn-warning");
             $("#followerCF").removeClass("btn-success");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         }
 
         updateStats();
@@ -76,14 +76,14 @@ $(window).on('load', function () {
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {});
             $(this).removeClass("btn-success");
             $("#followingFB").removeClass("btn-warning");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         } else {
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {
                 extra: 'Yes'
             });
             $(this).addClass("btn-success");
             $("#followingFB").removeClass("btn-warning");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         }
 
         updateStats();
@@ -94,14 +94,14 @@ $(window).on('load', function () {
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {});
             $(this).removeClass("btn-warning");
             $("#followingCF").removeClass("btn-success");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         } else {
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {
                 FB: 'No'
             });
             $(this).addClass("btn-warning");
             $("#followingCF").removeClass("btn-success");
-            $("#followFFollow").removeClass("btn-info");
+            $("#followFFollow").removeClass("btn-primary");
         }
 
         updateStats();
