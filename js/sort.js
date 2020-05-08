@@ -1,17 +1,26 @@
-/*eslint-env jquery*/
+/*global $*/
 
 $(window).on('load', function () {
     'use strict';
+
+    function clearFilters() {
+        $("#followerFB").removeClass("btn-warning");
+        $("#followerCF").removeClass("btn-success");
+        $("#followingFB").removeClass("btn-warning");
+        $("#followingCF").removeClass("btn-success");
+    }
+
+    function updateStats() {
+        $('#followerCount').text($('#tableConnectionsFollowers').bootstrapTable('getOptions').totalRows);
+        $('#followingCount').text($('#tableConnectionsFollowing').bootstrapTable('getOptions').totalRows);
+    }
 
     $("#followFFollow").click(function () {
         if ($(this).hasClass("btn-info")) {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {});
             $('#tableConnectionsFollowing').bootstrapTable('filterBy', {});
             $(this).removeClass("btn-info");
-            $("#followerFB").removeClass("btn-warning");
-            $("#followerCF").removeClass("btn-success");
-            $("#followingFB").removeClass("btn-warning");
-            $("#followingCF").removeClass("btn-success");
+            clearFilters();
         } else {
             $('#tableConnectionsFollowers').bootstrapTable('filterBy', {
                 FB: 'Yes'
@@ -20,11 +29,10 @@ $(window).on('load', function () {
                 FB: 'Yes'
             });
             $(this).addClass("btn-info");
-            $("#followerFB").removeClass("btn-warning");
-            $("#followerCF").removeClass("btn-success");
-            $("#followingFB").removeClass("btn-warning");
-            $("#followingCF").removeClass("btn-success");
+            clearFilters();
         }
+
+        updateStats();
     });
 
     $("#followerCF").click(function () {
@@ -41,6 +49,8 @@ $(window).on('load', function () {
             $("#followerFB").removeClass("btn-warning");
             $("#followFFollow").removeClass("btn-info");
         }
+
+        updateStats();
     });
 
     $("#followerFB").click(function () {
@@ -57,6 +67,8 @@ $(window).on('load', function () {
             $("#followerCF").removeClass("btn-success");
             $("#followFFollow").removeClass("btn-info");
         }
+
+        updateStats();
     });
 
     $("#followingCF").click(function () {
@@ -73,6 +85,8 @@ $(window).on('load', function () {
             $("#followingFB").removeClass("btn-warning");
             $("#followFFollow").removeClass("btn-info");
         }
+
+        updateStats();
     });
 
     $("#followingFB").click(function () {
@@ -89,5 +103,7 @@ $(window).on('load', function () {
             $("#followingCF").removeClass("btn-success");
             $("#followFFollow").removeClass("btn-info");
         }
+
+        updateStats();
     });
 });
