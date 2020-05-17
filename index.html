@@ -19,26 +19,30 @@
     <!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <h1 class="navbar-brand ig-gradient">InstaData</h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="navbar-brand">
+                <h1 class="ig-gradient" style="display: inline-block;">InstaData</h1><span style="color: #ffa500; display: inline-block; padding-left: 8px;"> BETA</span>
+            </div>
+            <div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#followersFollowing">Followers/Following</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blockedRestricted">Blocked &amp; Restricted</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inOutRequests">Follow Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link aboutBtn" href="#about" onclick="$('#aboutModal').modal('show');">About</a>
-                    </li>
-                </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#followersFollowing">Followers/Following</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blockedRestricted">Blocked &amp; Restricted</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inOutRequests">Follow Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link aboutBtn" href="#about" onclick="$('#aboutModal').modal('show');">About</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <hr class="mt-5 mb-5">
@@ -171,6 +175,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 <script src="js/upload.js"></script>
-<script src="js/sort.js"></script>
-    
-</html>
+<script src="js/sort.js"></script></html>

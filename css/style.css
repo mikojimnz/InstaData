@@ -20,7 +20,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.navbar-brand {
+.navbar-brand h1 {
     font-size: 24px;
     font-weight: 600;
 }
