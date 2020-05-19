@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -24,7 +25,6 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-107337032-6');
-
     </script>
 
 </head>
@@ -75,30 +75,57 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Get Started</h5>
+                        <h5 class="modal-title" id="uploadModalLabel">Get Started</h5>
                     </div>
                     <div class="modal-body">
-                        <ol>
-                            <li><a href="https://help.instagram.com/181231772500920" target="_blank">Request your data from Instagram.</a>
-                                <p class="footnote">Note: This may take some time.</p>
-                            </li>
-                            <li>Download your data and extract the folder.</li>
-                            <li>
-                                <form id="connections-form">
-                                    <div class="form-group">
-                                        <label for="fileUpload">Upload <span class="code">connections.json</span></label>
-                                        <input type="file" class="form-control" id="fileUploadConnections" aria-describedby="fileUploadConnections" accept=".json" required>
-                                        <small id="fileUploadConnectionsHelp" class="form-text text-muted">Your data is not uploaded to any servers. All processing is done locally on your computer. <a class="aboutBtn" href="#" onclick="$('#aboutModal').modal('show');">Learn More</a></small>
+                        <div id="uploadCarousel" class="carousel slide" data-interval="false" data-keyboard="false" data-wrap="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <h3>1. <a href="https://help.instagram.com/181231772500920" target="_blank">Request your data from Instagram.</a></h3>
+                                    <p class="footnote">Note: This may take some time.</p>
+                                    <div class="pt-4 text-center">
+                                        <p><span class="icon icon-instagram lg-icon ig-gradient"></span></p>
+                                        <p><span class="icon icon-cloud-download lg-icon"></span></p>
                                     </div>
-                                    <div class="form-group">
-                                        <small id="fileUploadConnectionsWarning" class="form-text text-danger"></small>
+                                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="$('#uploadCarousel').carousel('next')">Continue</button>
+                                </div>
+                                <div class="carousel-item">
+                                    <h3>2. Download your data and extract the folder.</h3>
+                                    <div class="pt-4 text-center">
+                                        <p><span class="icon icon-file-zip lg-icon ig-gradient"></span></p>
+                                        <p><span class="icon icon-download2 lg-icon"></span></p>
                                     </div>
-                                </form>
-                            </li>
-                        </ol>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="uploadSubmit">Upload and Continue</button>
+                                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="$('#uploadCarousel').carousel('next')">Continue</button>
+                                </div>
+                                <div class="carousel-item">
+                                    <h3>3. Upload <span class="code">connections.json</span></h3>
+                                    <form id="connections-form">
+                                        <div class="form-group">
+                                            <label for="fileUploadConnections"></label>
+                                            <input type="file" class="form-control" id="fileUploadConnections" aria-describedby="fileUploadConnections" accept=".json" required>
+                                            <small id="fileUploadConnectionsHelp" class="form-text text-muted">Your data is not uploaded to any servers. All processing is done locally on your computer. <a class="aboutBtn" href="#" onclick="$('#aboutModal').modal('show');">Learn More</a></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <small id="fileUploadConnectionsWarning" class="form-text text-danger"></small>
+                                        </div>
+                                    </form>
+                                    <button type="button" class="btn btn-primary btn-sm float-right" id="uploadSubmit1">Upload and Continue</button>
+                                </div>
+                                <div class="carousel-item">
+                                    <h3>4. Upload Additional Information</h3>
+                                    <form id="optional-form">
+                                        <div class="form-group">
+                                            <label for="fileUploadOp1">Upload second <span class="code">connections.json</span></label>
+                                            <input type="file" class="form-control" id="fileUploadOp1" aria-describedby="fileUploadConnections" accept=".json" required>
+                                            <small id="fileUploadOp1Help" class="form-text text-muted">Your data is not uploaded to any servers. All processing is done locally on your computer. <a class="aboutBtn" href="#" onclick="$('#aboutModal').modal('show');">Learn More</a></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <small id="fileUploadConnectionsWarning" class="form-text text-danger"></small>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,6 +216,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 <script src="js/upload.js"></script>
-<script src="js/sort.js"></script>
-
-</html>
+<script src="js/sort.js"></script></html>

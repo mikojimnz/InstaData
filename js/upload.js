@@ -183,11 +183,12 @@ $(window).on('load', function () {
         $('#uploadModal').modal('show');
     });
 
-    $("#uploadSubmit").click(function (event) {
+    $("#uploadSubmit1").click(function (event) {
         event.preventDefault();
 
         if ($('#fileUploadConnections').val().split('\\').pop() === "connections.json") {
             $('#fileUploadConnectionsWarning').text("");
+//            $('#uploadCarousel').carousel('next')
 
             var fileReader = new FileReader();
             fileReader.onload = function () {

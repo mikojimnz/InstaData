@@ -20,6 +20,15 @@
     -webkit-text-fill-color: transparent;
 }
 
+.lg-icon {
+    font-size: 64px;
+    color: #000;
+}
+
+#uploadCarousel > .carousel-inner > .carousel-item {
+    min-height: 300px;
+}
+
 .navbar-brand h1 {
     font-size: 24px;
     font-weight: 600;
